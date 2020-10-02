@@ -236,55 +236,71 @@ function guardarPQR() {
     var tipo_pqr = $('#tipo_pqr').val();
     var asunto_pqr = $('#asunto_pqr').val();
     var estado_pqr = $('#estado_pqr').val();
+   
+    if(tipo_pqr.length == 0){
+        Swal.fire(
+            'Avertencia!',
+            'El campo Tipo de PQR se encuentra vacio',
+            'warning'
+        )
+    } else  if(asunto_pqr.length == 0){
+        Swal.fire(
+            'Avertencia!',
+            'El campo Asunto de PQR se encuentra vacio',
+            'warning'
+        )
+    }else {
+        
+        if (idPQR != '') {
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: 'crtDashboard.php',
+                data: {
+                    'idUsuario': idUsuario,
+                    'tipo_pqr': tipo_pqr,
+                    'asunto_pqr': asunto_pqr,
+                    'estado_pqr': estado_pqr,
+                    'idPQR': idPQR,
+                    'accion': 'modificarPQR'
+                },
+                success: function (data) {
+                    Swal.fire(
+                        '',
+                        'Estado de PQR Modificado Correctamente!',
+                        'success'
+                    )
 
+                    location.href = ('../../site/dashboard/dashboard')
 
-    if (idPQR != '') {
-        $.ajax({
-            type: "POST",
-            dataType: "html",
-            url: 'crtDashboard.php',
-            data: {
-                'idUsuario': idUsuario,
-                'tipo_pqr': tipo_pqr,
-                'asunto_pqr': asunto_pqr,
-                'estado_pqr': estado_pqr,
-                'idPQR': idPQR,
-                'accion': 'modificarPQR'
-            },
-            success: function (data) {
-                Swal.fire(
-                    '',
-                    'Estado de PQR Modificado Correctamente!',
-                    'success'
-                )
+                }
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                dataType: "html",
+                url: 'crtDashboard.php',
+                data: {
+                    'idUsuario': idUsuario,
+                    'tipo_pqr': tipo_pqr,
+                    'asunto_pqr': asunto_pqr,
+                    'accion': 'guardarPQR'
+                },
+                success: function (data) {
+                    Swal.fire(
+                        '',
+                        'PQR Creado y asignado Correctamente!',
+                        'success'
+                    )
 
-                location.href = ('../../site/dashboard/dashboard')
+                    location.href = ('../../site/dashboard/dashboard')
 
-            }
-        });
-    } else {
-        $.ajax({
-            type: "POST",
-            dataType: "html",
-            url: 'crtDashboard.php',
-            data: {
-                'idUsuario': idUsuario,
-                'tipo_pqr': tipo_pqr,
-                'asunto_pqr': asunto_pqr,
-                'accion': 'guardarPQR'
-            },
-            success: function (data) {
-                Swal.fire(
-                    '',
-                    'PQR Creado y asignado Correctamente!',
-                    'success'
-                )
-
-                location.href = ('../../site/dashboard/dashboard')
-
-            }
-        });
+                }
+            });
+        }
+        
     }
+
 
 
 
