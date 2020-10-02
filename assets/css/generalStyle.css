@@ -4,3 +4,47 @@ body{
     background-size: cover;
     background-position: top;
 }
+.lineacabecera{
+    background-color: black;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+}
+.separador{
+    background-color: black;
+    width: 2px;
+}
+.barramenu{
+    background-color: #000;
+    padding: 4px;
+}
+.admin{
+    color: darkcyan;
+    text-transform: uppercase;
+}
+.user{
+    color: salmon;
+    text-transform: uppercase;
+}
+.usuarioSesion{
+    color: #fff;
+}
+.estadoPqr{
+    text-transform: uppercase;
+}
+.nuevo{
+    color: springgreen;
+}
+.enejecucion{
+    color: steelblue;
+}
+.cerrado{
+    color: gold;
+}
+.vencida{
+    color: tomato;
+}
+.tipodepqr{
+    text-transform: uppercase;
+}

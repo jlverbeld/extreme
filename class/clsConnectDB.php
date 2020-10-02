@@ -7,7 +7,7 @@
 		private $user="root";
 		private $password='';
 		private $host="localhost";
-		private $db="phppuro";
+		private $db="extreme";
 
 		//NUBE
 	/* 	private $user="epiz_26772470";
