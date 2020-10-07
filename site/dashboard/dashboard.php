@@ -261,9 +261,9 @@
             </div>
         </div>
 
-       <!--  <a class="btn btn-success" href="../generateExcel.php">
+        <a class="btn btn-success" style="color:#fff" onClick="generarExcel()" >
             Generar Excel
-        </a> -->
+        </a>
 
         <footer class="mastfoot mt-auto">
             <div class="inner">

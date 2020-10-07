@@ -402,3 +402,20 @@ function eliminarPQR(idPQR) {
     })
 
 }
+
+//Generar Excel
+function generarExcel(){
+    $.ajax({
+        type: "POST",
+        dataType: "html",
+        url: '../generateExcel.php',
+        data: {
+            
+        },
+        success: function (data) {
+         
+            location.href=('../excel.xlsx')
+
+        }
+    });
+}
